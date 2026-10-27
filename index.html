@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مكتبة ألحان مدرسة القديس بولس الرسول</title>
+
+<style>
+:root {
+  --navy: #071b3a;
+  --navy2: #102d56;
+  --gold: #d9b45b;
+  --gold-light: #f4df9b;
+  --cream: #fffaf0;
+  --ink: #17243a;
+  --muted: #6e7890;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: linear-gradient(145deg, #07152e, #102d56 58%, #081a35);
+  color: var(--cream);
+  min-height: 100vh;
+}
+
+button { font: inherit; cursor: pointer; }
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px clamp(14px, 4vw, 42px);
+  border-bottom: 1px solid #d9b45b55;
+  background: #06152ee8;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  padding: 3px;
+  border: 2px solid var(--gold);
+}
+
+.brand { flex: 1; }
+
+.brand h1 {
+  font-size: clamp(16px, 2.5vw, 23px);
+  margin: 0 0 5px;
+  color: var(--gold-light);
+}
+
+.brand p {
+  margin: 0;
+  font-size: 12px;
+  color: #d7dfef;
+}
+
+.small-btn {
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold-light);
+  padding: 9px 13px;
+  border-radius: 10px;
+}
+
+main {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 28px 0 55px;
+}
+
+.page { display: none; animation: appear .22s ease; }
+.page.active { display: block; }
+
+@keyframes appear {
+  from { opacity: .4; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+  min-height: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 18px;
+}
+
+.hero-mark {
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  background: #fff;
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  padding: 5px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.hero h2 {
+  font-size: clamp(25px, 5vw, 43px);
+  line-height: 1.5;
+  margin: 8px 0 12px;
+  color: var(--gold-light);
+}
+
+.hero p {
+  max-width: 650px;
+  line-height: 1.9;
+  color: #e0e8f6;
+  margin: 0 0 24px;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #10203b;
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 26px;
+  font-weight: bold;
+  box-shadow: 0 8px 24px #0003;
+}
+
+.primary:hover { filter: brightness(1.06); transform: translateY(-1px); }
+
+.notice {
+  background: #ffffff0b;
+  border: 1px solid #d9b45b88;
+  border-right: 5px solid var(--gold);
+  padding: 17px 20px;
+  border-radius: 12px;
+  margin: 12px 0 25px;
+  line-height: 1.8;
+}
+
+.notice strong { color: var(--gold-light); }
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 10px 0 20px;
+}
+
+.section-heading h2 {
+  color: var(--gold-light);
+  margin: 0;
+  font-size: clamp(22px, 4vw, 30px);
+}
+
+.section-heading p {
+  color: #cbd5e6;
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: linear-gradient(145deg, #ffffff12, #ffffff06);
+  border: 1px solid #d9b45b77;
+  color: var(--cream);
+  border-radius: 16px;
+  padding: 22px 16px;
+  min-height: 105px;
+  text-align: center;
+  transition: .18s;
+  box-shadow: 0 7px 20px #0002;
+}
+
+.card:hover {
+  border-color: var(--gold-light);
+  background: #ffffff18;
+  transform: translateY(-3px);
+}
+
+.card .number {
+  display: block;
+  color: var(--gold);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.card strong { font-size: 18px; line-height: 1.7; }
+
+.back-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.secondary {
+  background: #ffffff0b;
+  border: 1px solid #ffffff40;
+  color: #d4af37;
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+.secondary:hover { border-color: var(--gold); color: var(--gold-light); }
+
+.panel {
+  background: #fffaf0;
+  color: var(--ink);
+  border-radius: 18px;
+  padding: clamp(16px, 3vw, 26px);
+  box-shadow: 0 12px 32px #0003;
+}
+
+.panel h3 { margin-top: 0; color: var(--navy); }
+
+.muted { color: var(--muted); line-height: 1.8; }
+
+.track-placeholder {
+  border: 1px dashed #aeb8c7;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  margin: 16px 0;
+  color: #526078;
+  background: #fff;
+}
+
+.hymn-list {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.hymn-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  border: 1px solid #d7dce5;
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+}
+
+.hymn-item button {
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 14px;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-weight: bold;
+}
+
+.hymn-item button:hover { background: var(--navy2); }
+
+.hymn-name { font-weight: bold; line-height: 1.6; }
+
+.audio-wrap { margin: 16px 0; }
+.audio-wrap audio { width: 100%; }
+
+.download-link {
+  display: inline-block;
+  background: var(--navy);
+  color: var(--gold-light);
+  padding: 10px 14px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.download-link:hover { background: var(--navy2); }
+
+.loop-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.loop-controls label {
+  font-size: 14px;
+  color: #33415c;
+  display: block;
+}
+
+.loop-controls input {
+  width: 100%;
+  margin-top: 7px;
+  padding: 10px;
+  border: 1px solid #c7ced8;
+  border-radius: 9px;
+  font: inherit;
+}
+
+.loop-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.loop-actions button { font-weight: bold; }
+
+.loop-status {
+  margin-top: 12px;
+  color: #526078;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.footer {
+  text-align: center;
+  border-top: 1px solid #d9b45b44;
+  padding: 22px 10px;
+  color: #cbd5e6;
+  font-size: 12px;
+}
+
+@media(max-width:760px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .topbar { padding: 12px; }
+  .logo { width: 48px; height: 48px; }
+  .small-btn { padding: 8px; font-size: 12px; }
+  .hero { min-height: 320px; }
+}
+
+@media(max-width:430px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { min-height: 80px; padding: 17px; }
+  .loop-controls { grid-template-columns: 1fr; }
+  .brand p { font-size: 10px; }
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <img class="logo" src="logo.png" alt="شعار مدرسة القديس بولس الرسول" onerror="this.style.display='none'">
+  <div class="brand">
+    <h1>مكتبة الألحان</h1>
+    <p>مدرسة القديس بولس الرسول للشمامسة بالعمرانية</p>
+  </div>
+  <button class="small-btn" id="homeButton" type="button">الرئيسية</button>
+</header>
+
+<main>
+  <section class="page active" id="homePage">
+    <div class="hero">
+      <img class="hero-mark" src="logo.png" alt="شعار المدرسة" onerror="this.style.display='none'">
+      <div class="eyebrow">باسم الآب والابن والروح القدس</div>
+      <h2>مكتبة ألحان الشمامسة</h2>
+      <p>مكتبة تجمع الألحان والطقوس مرتبة حسب السنوات والأقسام، لتسهيل الوصول إلى اللحن المطلوب والتدريب عليه.</p>
+      <button class="primary" id="enterLibrary" type="button">دخول المكتبة</button>
+    </div>
+    <div class="notice">
+      <strong>إعلان المكتبة</strong><br>
+      أهلًا بكم في مكتبة ألحان مدرسة القديس بولس الرسول. سيتم إضافة التسجيلات تباعًا.
+    </div>
+  </section>
+
+  <section class="page" id="libraryPage">
+    <div class="back-row"><button class="secondary" data-go="homePage" type="button">← الرئيسية</button></div>
+    <div class="section-heading"><div><h2>سنوات المكتبة</h2><p>اختار السنة لعرض الأقسام الخاصة بيها.</p></div></div>
+    <div class="grid" id="yearsGrid"></div>
+  </section>
+
+  <section class="page" id="yearPage">
+    <div class="back-row"><button class="secondary" data-go="libraryPage" type="button">← كل السنوات</button></div>
+    <div class="section-heading"><div><h2 id="yearTitle">أقسام السنة</h2><p>اختار القسم المطلوب.</p></div></div>
+    <div class="grid" id="sectionsGrid"></div>
+  </section>
+
+  <section class="page" id="sectionPage">
+    <div class="back-row">
+      <button class="secondary" id="backToYear" type="button">← أقسام السنة</button>
+      <button class="secondary" data-go="libraryPage" type="button">كل السنوات</button>
+    </div>
+    <div class="section-heading"><div><h2 id="sectionTitle">الألحان</h2><p>اختار اللحن من القائمة لتشغيله أو تحميله.</p></div></div>
+    <div class="panel">
+      <h3>الألحان المتاحة</h3>
+      <div id="hymnList" class="hymn-list"></div>
+      <div class="track-placeholder" id="trackMessage">اختار لحنًا من القائمة أو أضف لحنًا إلى قائمة الكود.</div>
+      <h3 id="nowPlayingTitle">مشغل اللحن</h3>
+      <div class="audio-wrap"><audio id="audioPlayer" controls preload="metadata"></audio></div>
+      <a id="downloadButton" class="download-link" href="#" download hidden>⬇️ تحميل اللحن الحالي</a>
+      <h3>تكرار جزء من اللحن (Loop)</h3>
+      <p class="muted">حدد البداية والنهاية بالثواني، أو استخدم زري البداية والنهاية لتسجيل الوقت الحالي من المشغل.</p>
+      <div class="loop-controls">
+        <label>وقت البداية بالثواني<input id="loopStart" type="number" min="0" step="0.1" value="0"></label>
+        <label>وقت النهاية بالثواني<input id="loopEnd" type="number" min="0" step="0.1" value="10"></label>
+      </div>
+      <div class="loop-actions">
+        <button class="secondary" id="setLoopStart" type="button">تحديد البداية من المشغل</button>
+        <button class="secondary" id="setLoopEnd" type="button">تحديد النهاية من المشغل</button>
+        <button class="primary" id="startLoop" type="button">بدء التكرار</button>
+        <button class="secondary" id="stopLoop" type="button">إيقاف التكرار</button>
+      </div>
+      <div class="loop-status" id="loopStatus" aria-live="polite">اختار لحنًا أولًا لاستخدام التكرار.</div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">مدرسة القديس بولس الرسول للشمامسة بالعمرانية<br>Developed by M.W.</footer>
+
+<script>
+'use strict';
+
+/*
+  قائمة الألحان:
+  أضف كل لحن جديد داخل المصفوفة hymns.
+  ضع الملف داخل مجلد audio، واكتب اسم الملف كما هو تمامًا.
+  year: رقم السنة من 1 إلى 7.
+  section: اسم القسم كما يظهر على الموقع.
+*/
+const hymns = [
+  {
+    name: 'أرباع الناقوس الآدام',
+    file: 'ارباع الناقوس الادام.mp3',
+    year: 3,
+    section: 'ترم أول'
+  },
+{
+  name: 'أرباع الناقوس الواطس',
+  file: 'ارباع الناقوس الواطس.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'أرباع ناقوس العذراء والملائكة',
+  file: 'ارباع ناقوس العذراء والملائكة.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'أرباع ناقوس الرسل والشهداء',
+  file: 'ارباع ناقوس الرسل والشهداء.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'أرباع ناقوس البطريرك والختام',
+  file: 'ارباع ناقوس البطريرك والختام.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'أرباع ناقوس بطرس وبولس',
+  file: 'ارباع ناقوس بطرس وبولس.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'مقدمة الذكصولوجيات',
+  file: 'مقدمة الذكصولوجيات.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'ذكصولوجية العذراء باكر',
+  file: 'ذكصولوجية العذراء باكر.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'ذكصولوجية العذراء عشية',
+  file: 'ذكصولوجية العذراء عشية.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'ذكصولوجية الملاك ميخائيل',
+  file: 'ذكصولوجية الملاك ميخائيل.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'ذكصولوجية مارمرقص',
+  file: 'ذكصولوجية مارمرقص.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'ذكصولوجية بطرس وبولس',
+  file: 'ذكصولوجية بطرس وبولس.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'ذكصولوجية الرسل',
+  file: 'ذكصولوجية الرسل.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'ذكصولوجية السمائين',
+  file: 'ذكصولوجية السمائيين.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'ختام الذكصولوجيات',
+  file: 'ختام الذكصولوجيات.mp3',
+  year: 3,
+  section: 'ترم أول'
+},
+{
+  name: 'أوشية الراقدين',
+  file: 'اوشية الراقدين.mp3',
+  year: 3,
+  section: 'ترم تاني'
+},
+{
+  name: 'أوشية المرضى',
+  file: 'اوشية المرضى.mp3',
+  year: 3,
+  section: 'ترم تاني'
+},
+{
+  name: 'أوشية المسافرين',
+  file: 'اوشية المسافرين.mp3',
+  year: 3,
+  section: 'ترم تاني'
+},
+{
+  name: 'أوشية المياه',
+  file: 'اوشية المياه.mp3',
+  year: 3,
+  section: 'ترم تاني'
+},
+{
+  name: 'أوشية الزروع',
+  file: 'اوشية الزروع.mp3',
+  year: 3,
+  section: 'ترم تاني'
+},
+{
+  name: 'أوشية الأثمار',
+  file: 'اوشية الاثمار.mp3',
+  year: 3,
+  section: 'ترم تاني'
+},
+{
+  name: 'أوشية الاجتماعات',
+  file: 'اوشية الاجتماعات.mp3',
+  year: 3,
+  section: 'ترم تاني'
+},
+{
+  name: 'بي نيشتي',
+  file: 'بي نيشتي.mp3',
+  year: 3,
+  section: 'ترم تاني'
+},
+{
+  name: 'أمين الاعتراف قبطي',
+  file:   'امين الاعتراف قبطي.mp3',
+  year: 3,
+  section: 'ترم تاني'
+},
+{
+  name: 'البرلكس',
+  file: 'البرلكس.mp3',
+  year: 3,
+  section: 'ترم تالت'
+},
+{
+  name: 'سو',
+  file: 'سو.mp3',
+  year: 3,
+  section: 'ترم تالت'
+},
+{
+  name: 'اونوف اممو',
+  file: 'اونوف اممو.mp3',
+  year: 3,
+  section: 'ترم تالت'
+},
+{
+  name: 'ابتشويس افنوتي',
+  file: 'ابتشويس افنوتي.mp3',
+  year: 3,
+  section: 'ترم تالت'
+},
+{
+  name: 'اك اسماروؤت',
+  file: 'اك اسماروؤت.mp3',
+  year: 3,
+  section: 'ترم تالت'
+},
+{
+  name: 'بي اويك',
+  file: 'بي اويك.mp3',
+  year: 3,
+  section: 'ترم تالت'
+},
+{
+  name: 'جيه افسماروؤت',
+  file: 'جيه افسماروؤت.mp3',
+  year: 3,
+  section: 'ترم تالت'
+},
+
+  {
+    name: 'أرباع الناقوس الفرايحي',
+    file: 'ارباع الناقوس الفرايحي.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'أرباع ناقوس عيد الميلاد',
+    file: 'ارباع ناقوس عيد الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'مقدمة الذكصولوجيات الفرايحي',
+    file: 'مقدمة الذكصولوجيات الفرايحي.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'ذكصولوجية الميلاد',
+    file: 'ذكصولوجية الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'مرد مزمور الميلاد',
+    file: 'مرد مزمور الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'مرد إنجيل باكر الميلاد',
+    file: 'مرد انجيل باكر الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'مرد إنجيل الميلاد',
+    file: 'مرد انجيل الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'هيتين عيد الميلاد',
+    file: 'هيتين عيد الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'إي بارثينوس',
+    file: 'اي بارثينوس.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'مرد إبركسيس عيد الميلاد',
+    file: 'مرد ابركسيس عيد الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'بي جين ميسي',
+    file: 'بي جين ميسي.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'محير الميلاد',
+    file: 'محير الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'سنجاري الميلاد',
+    file: 'سنجاري الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'أجيوس الفرايحي',
+    file: 'اجيوس الفرايحي.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'مرد إنجيل الميلاد عربي',
+    file: 'مرد انجيل الميلاد عربي.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'أوسيو إفشاي',
+    file: 'اوسيو افشاي.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'مارو تشاسف',
+    file: 'مارو تشاسف.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'اسبسمس واطس الميلاد',
+    file: 'اسبسمس واطس الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'اسبسمس آدام الميلاد',
+    file: 'اسبسمس ادام الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'اللي التوزيع الفرايحي',
+    file: 'اللي التوزيع الفرايحي.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'جملة مرد توزيع الميلاد',
+    file: 'جملة مرد توزيع الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'توزيع الميلاد',
+    file: 'توزيع الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+  {
+    name: 'ختام الصلوات الميلاد',
+    file: 'ختام الصلوات الميلاد.mp3',
+    year: 4,
+    section: 'طقس الميلاد'
+  },
+{
+  name: 'أرباع ناقوس القيامة',
+  file: 'ارباع ناقوس القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'ذكصولوجية القيامة',
+  file: 'ذكصولوجية القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'مرد إنجيل باكر القيامة',
+  file: 'مرد انجيل باكر القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'هيتينيات القيامة',
+  file: 'هيتينيات القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'مرد إبركسيس القيامة',
+  file: 'مرد ابركسيس القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'أونيم ناي',
+  file: 'اونيم ناي.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'يا كل الصفوف',
+  file: 'يا كل الصفوف.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'خرستوس أنيستي الطويلة',
+  file: 'خرستوس انيستي الطويلة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'خرستوس أنيستي الصغيرة',
+  file: 'خرستوس انيستي الصغيرة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'طون سينا',
+  file: 'طون سينا.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'طوليثوس',
+  file: 'طوليثوس.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'تين أناسطاسين',
+  file: 'تين اناسطاسين.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'بخرستوس أفطونف',
+  file: 'بخرستوس افطونف.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'محير القيامة',
+  file: 'محير القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'أجيوس القيامة',
+  file: 'اجيوس القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'سنجاري القيامة',
+  file: 'سنجاري القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'مرد مزمور القيامة',
+  file: 'مرد مزمور القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'مرد إنجيل القيامة',
+  file: 'مرد انجيل القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'اسبسمس آدام القيامة',
+  file: 'اسبسمس ادام القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'اسبسمس واطس القيامة',
+  file: 'اسبسمس واطس القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'مرد توزيع القيامة',
+  file: 'مرد توزيع القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'كاطاني خوروس',
+  file: 'كاطاني خوروس.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+},
+{
+  name: 'ختام صلوات القيامة',
+  file: 'ختام صلوات القيامة.mp3',
+  year: 4,
+  section: 'طقس القيامة'
+}
+
+  // لإضافة لحن آخر، احذف // من المثال التالي واكتب بيانات اللحن:
+  // ,{ name: 'اسم اللحن', file: 'اسم الملف.mp3', year: 3, section: 'ترم أول' }
+];
+
+const yearSections = {
+  1: ['ترم أول', 'ترم تاني', 'ترم تالت'],
+  2: ['ترم أول', 'ترم تاني', 'ترم تالت'],
+  3: ['ترم أول', 'ترم تاني', 'ترم تالت'],
+  4: ['طقس الميلاد', 'طقس القيامة'],
+  5: ['طقس الشعانين', 'طقس الغطاس', 'طقس صيام الأيام', 'طقس صيام سبوت وأحاد'],
+  6: ['الطقس الحزايني'],
+  7: ['طقس النيروز', 'طقس كيهك', 'طقس سبت النور', 'طقس 29 من كل شهر قبطي', 'طقس الصعود', 'طقس العنصرة', 'طقس الرسل', 'طقس الصليب']
+};
+
+const yearNames = ['الأولى', 'الثانية', 'الثالثة', 'الرابعة', 'الخامسة', 'السادسة', 'السابعة'];
+const $ = id => document.getElementById(id);
+const audioPlayer = $('audioPlayer');
+
+let currentYear = 1;
+let currentSection = '';
+let loopEnabled = false;
+
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+  const page = $(pageId);
+  if (page) page.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function openLibrary() {
+  showPage('libraryPage');
+}
+
+function openYear(year) {
+  currentYear = Number(year);
+  if (!yearSections[currentYear]) return;
+
+  $('yearTitle').textContent = 'السنة ' + yearNames[currentYear - 1];
+  const grid = $('sectionsGrid');
+  grid.innerHTML = '';
+
+  yearSections[currentYear].forEach((sectionName, index) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'card';
+
+    const number = document.createElement('span');
+    number.className = 'number';
+    number.textContent = 'القسم ' + (index + 1);
+
+    const title = document.createElement('strong');
+    title.textContent = sectionName;
+
+    button.append(number, title);
+    button.addEventListener('click', () => openSection(sectionName));
+    grid.appendChild(button);
+  });
+
+  showPage('yearPage');
+}
+
+function openSection(sectionName) {
+  currentSection = sectionName;
+  $('sectionTitle').textContent = 'السنة ' + yearNames[currentYear - 1] + ' — ' + sectionName;
+
+  audioPlayer.pause();
+  audioPlayer.removeAttribute('src');
+  audioPlayer.load();
+  loopEnabled = false;
+  $('downloadButton').hidden = true;
+  $('downloadButton').removeAttribute('href');
+  $('loopStart').value = 0;
+  $('loopEnd').value = 10;
+  $('loopStatus').textContent = 'اختار لحنًا من القائمة لاستخدام التكرار.';
+  $('nowPlayingTitle').textContent = 'مشغل اللحن';
+
+  const list = $('hymnList');
+  list.innerHTML = '';
+
+  const matchingHymns = hymns.filter(hymn =>
+    Number(hymn.year) === currentYear && hymn.section === currentSection
+  );
+
+  $('trackMessage').hidden = matchingHymns.length > 0;
+
+  if (matchingHymns.length === 0) {
+    $('trackMessage').textContent = 'لم تتم إضافة ألحان لهذا القسم حتى الآن.';
+  }
+
+  matchingHymns.forEach(hymn => {
+    const row = document.createElement('div');
+    row.className = 'hymn-item';
+
+    const name = document.createElement('span');
+    name.className = 'hymn-name';
+    name.textContent = hymn.name;
+
+    const playButton = document.createElement('button');
+    playButton.type = 'button';
+    playButton.textContent = '▶ تشغيل اللحن';
+    playButton.addEventListener('click', () => playHymn(hymn));
+
+    row.append(name, playButton);
+    list.appendChild(row);
+  });
+
+  showPage('sectionPage');
+}
+
+function playHymn(hymn) {
+  const path = 'audio/' + hymn.file;
+  audioPlayer.pause();
+  audioPlayer.src = path;
+  audioPlayer.load();
+
+  $('downloadButton').href = path;
+  $('downloadButton').download = hymn.file;
+  $('downloadButton').hidden = false;
+  $('nowPlayingTitle').textContent = 'مشغل اللحن: ' + hymn.name;
+  $('trackMessage').hidden = false;
+  $('trackMessage').textContent = 'اللحن المختار: ' + hymn.name;
+  $('loopStatus').textContent = 'اللحن جاهز. شغّله وحدد الجزء الذي تريد تكراره.';
+  loopEnabled = false;
+
+  audioPlayer.play().catch(() => {
+    $('loopStatus').textContent = 'اضغط زر التشغيل في مشغل الصوت. لو لم يعمل، راجع اسم الملف ومكانه داخل مجلد audio.';
+  });
+}
+
+$('enterLibrary').addEventListener('click', openLibrary);
+$('homeButton').addEventListener('click', () => showPage('homePage'));
+
+document.querySelectorAll('[data-go]').forEach(button => {
+  button.addEventListener('click', () => showPage(button.dataset.go));
+});
+
+$('backToYear').addEventListener('click', () => openYear(currentYear));
+
+for (let year = 1; year <= 7; year++) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'card';
+
+  const number = document.createElement('span');
+  number.className = 'number';
+  number.textContent = 'مدرسة الشمامسة';
+
+  const title = document.createElement('strong');
+  title.textContent = 'السنة ' + yearNames[year - 1];
+
+  button.append(number, title);
+  button.addEventListener('click', () => openYear(year));
+  $('yearsGrid').appendChild(button);
+}
+
+$('setLoopStart').addEventListener('click', () => {
+  if (!audioPlayer.getAttribute('src')) {
+    $('loopStatus').textContent = 'اختار لحنًا الأول.';
+    return;
+  }
+
+  $('loopStart').value = audioPlayer.currentTime.toFixed(1);
+  $('loopStatus').textContent = 'تم تحديد البداية عند ' + audioPlayer.currentTime.toFixed(1) + ' ثانية.';
+});
+
+$('setLoopEnd').addEventListener('click', () => {
+  if (!audioPlayer.getAttribute('src')) {
+    $('loopStatus').textContent = 'اختار لحنًا الأول.';
+    return;
+  }
+
+  $('loopEnd').value = audioPlayer.currentTime.toFixed(1);
+  $('loopStatus').textContent = 'تم تحديد النهاية عند ' + audioPlayer.currentTime.toFixed(1) + ' ثانية.';
+});
+
+$('startLoop').addEventListener('click', () => {
+  const start = Number($('loopStart').value);
+  const end = Number($('loopEnd').value);
+
+  if (!audioPlayer.getAttribute('src')) {
+    $('loopStatus').textContent = 'اختار لحنًا الأول.';
+    return;
+  }
+
+  if (!Number.isFinite(start) || !Number.isFinite(end) || start < 0 || end <= start) {
+    $('loopStatus').textContent = 'راجع الوقتين: النهاية لازم تكون أكبر من البداية.';
+    return;
+  }
+
+  if (Number.isFinite(audioPlayer.duration) && end > audioPlayer.duration) {
+    $('loopStatus').textContent = 'وقت النهاية أكبر من مدة التسجيل.';
+    return;
+  }
+
+  loopEnabled = true;
+  audioPlayer.currentTime = start;
+
+  audioPlayer.play().then(() => {
+    $('loopStatus').textContent = 'بيتم تكرار الجزء من ' + start + ' إلى ' + end + ' ثانية.';
+  }).catch(() => {
+    loopEnabled = false;
+    $('loopStatus').textContent = 'اضغط تشغيل من مشغل الصوت ثم جرّب بدء التكرار.';
+  });
+});
+
+$('stopLoop').addEventListener('click', () => {
+  loopEnabled = false;
+  $('loopStatus').textContent = 'تم إيقاف التكرار.';
+});
+
+audioPlayer.addEventListener('timeupdate', () => {
+  if (!loopEnabled) return;
+
+  const start = Number($('loopStart').value);
+  const end = Number($('loopEnd').value);
+
+  if (audioPlayer.currentTime >= end) audioPlayer.currentTime = start;
+});
+
+audioPlayer.addEventListener('error', () => {
+  if (audioPlayer.getAttribute('src')) {
+    $('loopStatus').textContent = 'تعذر تحميل الملف. تأكد أن اسمه مطابق تمامًا وأنه موجود داخل مجلد audio.';
+  }
+});
+</script>
+</body>
+</html>
